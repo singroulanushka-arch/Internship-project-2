@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Catalog</title>
+<style>
+body{
+font-family:Arial;
+background:#f4f4f4;
+text-align:center;
+}
+
+.container{
+width:80%;
+margin:auto;
+}
+
+h1{
+color:#333;
+}
+
+#search{
+padding:10px;
+width:300px;
+margin-bottom:20px;
+}
+
+.products{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.card{
+background:white;
+padding:15px;
+width:220px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+button{
+background:green;
+color:white;
+border:none;
+padding:10px;
+cursor:pointer;
+border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Product Catalog</h1>
+
+<input type="text" id="search"
+placeholder="Search Product"
+onkeyup="searchProduct()">
+
+<div class="products" id="products">
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Laptop</h3>
+<p>₹50000</p>
+<button>Buy Now</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Mobile</h3>
+<p>₹20000</p>
+<button>Buy Now</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Headphones</h3>
+<p>₹1500</p>
+<button>Buy Now</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Smart Watch</h3>
+<p>₹3000</p>
+<button>Buy Now</button>
+</div>
+
+</div>
+</div>
+
+<script>
+function searchProduct(){
+let input =
+document.getElementById("search")
+.value.toLowerCase();
+
+let cards =
+document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+let title =
+card.querySelector("h3")
+.innerText.toLowerCase();
+
+if(title.includes(input)){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
+});
+}
+</script>
+
+</body>
+</html>
